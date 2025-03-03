@@ -139,7 +139,7 @@ if __name__ == "__main__":
     preprocess_and_save(input_folder, temp_folder)
 
     # Step 3: Update metadata for the .wav files in the output folder
-    update_metadata(output_folder, output_folder)
+    update_metadata(temp_folder, output_folder)
 
     # Step 4: Clear Temp Folder
     clear_folder(temp_folder)
