@@ -70,7 +70,7 @@ def update_metadata(input_folder, output_folder):
     wav_files = sorted([f for f in os.listdir(input_folder) if f.lower().endswith(".wav")])
 
     if not wav_files:
-        print("No .wav files found in the input folder.")
+        print("No .wav files found in the temp folder.")
         return
 
     for index, filename in enumerate(wav_files, start=1):
@@ -126,20 +126,23 @@ def preprocess_and_save(input_path, output_path):
 
 if __name__ == "__main__":
     input_folder = "inputWavs"
-    output_folder = "outputProcessor"
-    final_product_folder = "wavs"
+    temp_folder = "temp"
+    output_folder = "wavs"
     
-    # Clear the output folder
+    # Clear the output folders
+    clear_output_folder(temp_folder)
     clear_output_folder(output_folder)
-    clear_output_folder(final_product_folder)
 
     # Step 1: Rename .wav files in the input folder
     rename_wave_files(input_folder)
 
     # Step 2: Preprocess and save the .wav files to the output folder
-    preprocess_and_save(input_folder, output_folder)
+    preprocess_and_save(input_folder, temp_folder)
 
     # Step 3: Update metadata for the .wav files in the output folder
-    update_metadata(output_folder, final_product_folder)
+    update_metadata(output_folder, output_folder)
+
+    # Step 4: Clear Temp Folder
+    clear_output_folder(temp_folder)
 
     print("All tasks completed successfully!")
