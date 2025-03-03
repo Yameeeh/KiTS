@@ -127,9 +127,11 @@ def preprocess_and_save(input_path, output_path):
 if __name__ == "__main__":
     input_folder = "inputWavs"
     output_folder = "outputProcessor"
+    final_product_folder = "wavs"
     
     # Clear the output folder
     clear_output_folder(output_folder)
+    clear_output_folder(final_product_folder)
 
     # Step 1: Rename .wav files in the input folder
     rename_wave_files(input_folder)
@@ -138,6 +140,6 @@ if __name__ == "__main__":
     preprocess_and_save(input_folder, output_folder)
 
     # Step 3: Update metadata for the .wav files in the output folder
-    update_metadata(output_folder, "wavs")
+    update_metadata(output_folder, final_product_folder)
 
     print("All tasks completed successfully!")
