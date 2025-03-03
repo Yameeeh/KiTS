@@ -135,7 +135,7 @@ if __name__ == "__main__":
     # Step 1: Rename .wav files in the input folder
     rename_wave_files(input_folder)
 
-    # Step 2: Preprocess and save the .wav files to the output folder
+    # Step 2: Preprocess and save the .wav files to the temp folder
     preprocess_and_save(input_folder, temp_folder)
 
     # Step 3: Update metadata for the .wav files in the output folder
