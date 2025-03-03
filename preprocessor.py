@@ -6,18 +6,18 @@ import soundfile as sf
 import taglib
 
 
-def clear_output_folder(output_folder):
+def clear_folder(folder):
     """
-    Clears all files in the output folder.
+    Clears all files in a folder.
     """
-    if os.path.exists(output_folder):
-        for filename in os.listdir(output_folder):
-            file_path = os.path.join(output_folder, filename)
+    if os.path.exists(folder):
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
             if os.path.isfile(file_path):
                 os.remove(file_path)
                 print(f"Deleted: {file_path}")
     else:
-        print(f"❌ Output folder '{output_folder}' does not exist.")
+        print(f"❌ Output folder '{folder}' does not exist.")
 
 
 def rename_wave_files(folder_path):
@@ -62,7 +62,7 @@ def clean_wav_metadata(input_file, cleaned_file):
 
 
 def update_metadata(input_folder, output_folder):
-    clear_output_folder(output_folder)
+    clear_folder(output_folder)
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -129,9 +129,8 @@ if __name__ == "__main__":
     temp_folder = "temp"
     output_folder = "wavs"
     
-    # Clear the output folders
-    clear_output_folder(temp_folder)
-    clear_output_folder(output_folder)
+    # Clear the temp folder
+    clear_folder(temp_folder)
 
     # Step 1: Rename .wav files in the input folder
     rename_wave_files(input_folder)
@@ -143,6 +142,6 @@ if __name__ == "__main__":
     update_metadata(output_folder, output_folder)
 
     # Step 4: Clear Temp Folder
-    clear_output_folder(temp_folder)
+    clear_folder(temp_folder)
 
     print("All tasks completed successfully!")
