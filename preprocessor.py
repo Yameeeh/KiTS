@@ -141,7 +141,7 @@ if __name__ == "__main__":
     # Step 3: Update metadata for the .wav files in the temp folder and save to output folder
     update_metadata(temp_folder, output_folder)
 
-    # Step 4: Clear Temp Folder
+    # Step 4: Clear temp folder
     clear_folder(temp_folder)
 
     print("All tasks completed successfully!")
